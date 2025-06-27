@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le HTML</title>
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4A4A4A;
+        }
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4A90E2;
+        }
+        a{
+        color: aqua;
+        transition: 0.3s;
+        }
+        
+        a:hover{
+        color: rgb(73, 73, 235);
+        }
+        pre {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .example {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #4A90E2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Apprendre le HTML</h1>
+
+    <div class="container">
+        <h2>&lt;html&gt;</h2>
+        <p>Définit le document HTML.</p>
+        <pre><code>&lt;html&gt;...&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="container">
+        <h2>&lt;head&gt;</h2>
+        <p>Contient les métadonnées du document.</p>
+        <pre><code>&lt;head&gt;...&lt;/head&gt;</code></pre>
+    </div>
+
+    <div class="container">
+        <h2>&lt;title&gt;</h2>
+        <p>Définit le titre du document affiché dans l'onglet du navigateur.</p>
+    </div>
+
+    <div class="container">
+        <h2>&lt;body&gt;</h2>
+        <p>Contient le contenu principal du document.</p>
+        <pre><code>&lt;body&gt;...&lt;/body&gt;</code></pre>
+    </div>
+
+    <div class="container">
+        <h2>&lt;h1&gt; à &lt;h6&gt;</h2>
+        <p>Définit les titres, &lt;h1&gt; étant le plus important et &lt;h6&gt; le moins important.</p>
+        <pre><code>&lt;h1&gt;Titre Principal&lt;/h1&gt;</code></pre>
+        <pre><code>&lt;h2&gt;Sous-titre&lt;/h2&gt;</code></pre>
+        <h1>Titre Principal</h1>
+        <h2>Sous-titre</h2>
+    </div>
+
+    <div class="container">
+        <h2>&lt;p&gt;</h2>
+        <p>Définit un paragraphe.</p>
+        <pre><code>&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;</code></pre>
+        <p>Ceci est un paragraphe.</p>
+    </div>
+
+    <div class="container">
+        <h2>&lt;a&gt;</h2>
+        <p>Définit un lien hypertexte.</p>
+        <pre><code>&lt;a href="https://www.example.com"&gt;Visitez notre site&lt;/a&gt;</code></pre>
+        <a href="cv.html">mon cv !!!</a>
+    </div>
+
+    <div class="container">
+        <h2>&lt;img&gt;</h2>
+        <p>Insère une image.</p>
+        <pre><code>&lt;img src="image.jpg" alt="Description de l'image"&gt;</code></pre>
+        <img src="LOGO.png" alt="">
+    </div>
+
+    <div class="container">
+        <h2>&lt;ul&gt; et &lt;li&gt;</h2>
+        <p>Définit une liste non ordonnée.</p>
+        <pre><code>&lt;ul&gt;
+    &lt;li&gt;Élément 1&lt;/li&gt;
+    &lt;li&gt;Élément 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<ul>
+    <li>liste 1</li>
+    <li>...</li>
+    <li>liste n</li>
+</ul>
+    </div>
+
+    <div class="container">
+        <h2>&lt;ol&gt;</h2>
+        <p>Définit une liste ordonnée.</p>
+        <pre><code>&lt;ol&gt;
+    &lt;li&gt;Premier élément&lt;/li&gt;
+    &lt;li&gt;Deuxième élément&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+<ul>
+    <ol>liste 1</ol>
+    <ol>liste 2</ol>
+    <ol>liste ...</ol>
+    <ol>liste n</ol>
+</ul>
+    </div>
+
+    <div class="container">
+        <h2>&lt;div&gt;</h2>
+        <p>Définit une section ou un conteneur.</p>
+        <pre><code>&lt;div&gt;Contenu ici&lt;/div&gt;</code></pre>
+        ceci est un div
+    </div>
+
+    <div class="container">
+        <h2>&lt;span&gt;</h2>
+        <p>Définit une section en ligne.</p>
+        <pre><code>&lt;span&gt;Texte en ligne&lt;/span&gt;</code></pre>
+        <span>Text en ligne</span>
+    </div>
+
+    <div class="container">
+        <h2>&lt;form&gt;</h2>
+        <p>Définit un formulaire.</p>
+        <pre><code>&lt;form&gt;...&lt;/form&gt;</code></pre>
+        <form action="">
+            nom<input type="text"><br>
+            prenom <input type="text">
+            <button>envoyer</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>&lt;input&gt;</h2>
+        <p>Définit un champ de saisie dans un formulaire.</p>
+        <pre><code>&lt;input type="text" placeholder="Entrez votre nom"&gt;</code></pre>
+        <input type="text" placeholder="Entrer votre nom">
+    </div>
+
+    <div class="container">
+        <h2>&lt;button&gt;</h2>
+        <p>Définit un bouton cliquable.</p>
+        <pre><code>&lt;button&gt;Cliquez ici&lt;/button&gt;</code></pre>
+        <button>Cliquez ici</button>
+    </div>
+
+    <div class="container">
+        <h2>&lt;footer&gt;</h2>
+        <p>Définit le pied de page d'un document.</p>
+        <pre><code>&lt;footer&gt;Droits d'auteur © 2023&lt;/footer&gt;</code></pre>
+        <footer>Droits d'auteur @ 2023</footer>
+    </div>
+
+    <div class="container">
+        <h2>&lt;header&gt;</h2>
+        <p>Définit l'en-tête d'un document ou d'une section.</p>
+        <pre><code>&lt;header&gt;Titre de l'en-tête&lt;/header&gt;</code></pre>
+        <header>Titre de l'en-tête</header>
+    </div>
+    <div class="container">
+        <h2>&lt;Table&gt;</h2>
+        <p>Définit un tableau a n colone et a p ligne </p>
+        <pre><code>&lt;table&gt;Titre de l'en-tête&lt;/table&gt;</code></pre>
+        <table>
+            <tr>
+                <td>clone 1</td><td>colone 2</td><td>colone ...</td><td>colone n</td>
+            </tr>
+            <tr>
+                <td>ligne 1</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>ligne 2</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>ligne ...</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td>ligne n</td><td></td><td></td><td></td>
+            </tr>     
+        </table>
+    </div>
+<footer>NB: il existe plusieur autre balise mais voila en gros comment on utilise une balise et voila quelque balise de base HTML</footer>
+<footer>
+    @ 2024-2025 @keyce infomatique <a href="facebook.com">facebook</a> <a href="instagram.com">Instagram</a><a href="tiktok.com">Tiktok</a>
+</footer>
+</body>
+</html>

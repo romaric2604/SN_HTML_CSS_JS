@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM Développement Web</title>
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .score {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+        }
+        button {
+    border-radius: 10px; 
+    width: 100px; 
+    height: 30px; 
+    background-color: #f4f4f4; 
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease; 
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+    </style>
+</head>
+<body>
+
+    <h1>Questionnaire à Choix Multiples</h1>
+    <form id="quizForm">
+        <div class="question">
+            <label>1. Quelle balise HTML est utilisée pour créer un lien ?</label>
+            <input type="radio" name="q1" value="a"> a. &lt;link&gt;<br>
+            <input type="radio" name="q1" value="b"> b. &lt;a&gt;<br>
+            <input type="radio" name="q1" value="c"> c. &lt;href&gt;<br>
+        </div>
+        <div class="question">
+            <label>2. Quelle propriété CSS est utilisée pour changer la couleur du texte ?</label>
+            <input type="radio" name="q2" value="a"> a. `color`<br>
+            <input type="radio" name="q2" value="b"> b. `background`<br>
+            <input type="radio" name="q2" value="c"> c. `font-color`<br>
+        </div>
+        <div class="question">
+            <label>3. Quelle méthode JavaScript est utilisée pour afficher des messages dans la console ?</label>
+            <input type="radio" name="q3" value="a"> a. `console.log()`<br>
+            <input type="radio" name="q3" value="b"> b. `print()`<br>
+            <input type="radio" name="q3" value="c"> c. `echo()`<br>
+        </div>
+        <div class="question">
+            <label>4. Quelle balise HTML est utilisée pour insérer une image ?</label>
+            <input type="radio" name="q4" value="a"> a. &lt;img&gt;<br>
+            <input type="radio" name="q4" value="b"> b. &lt;picture&gt;<br>
+            <input type="radio" name="q4" value="c"> c. &lt;image&gt;<br>
+        </div>
+        <div class="question">
+            <label>5. Quelle propriété CSS contrôle l'espacement intérieur d'un élément ?</label>
+            <input type="radio" name="q5" value="a"> a. `margin`<br>
+            <input type="radio" name="q5" value="b"> b. `padding`<br>
+            <input type="radio" name="q5" value="c"> c. `border`<br>
+        </div>
+        <div class="question">
+            <label>6. Quel attribut est utilisé pour spécifier une URL dans une balise `<a>` ?</label>
+            <input type="radio" name="q6" value="a"> a. `src`<br>
+            <input type="radio" name="q6" value="b"> b. `href`<br>
+            <input type="radio" name="q6" value="c"> c. `link`<br>
+        </div>
+        <div class="question">
+            <label>7. Quelle méthode est utilisée pour ajouter un événement en JavaScript ?</label>
+            <input type="radio" name="q7" value="a"> a. `addEventListener()`<br>
+            <input type="radio" name="q7" value="b"> b. `attachEvent()`<br>
+            <input type="radio" name="q7" value="c"> c. `onEvent()`<br>
+        </div>
+        <div class="question">
+            <label>8. Quelle balise HTML est utilisée pour créer une section de navigation ?</label>
+            <input type="radio" name="q8" value="a"> a. &lt;nav&gt;`<br>
+            <input type="radio" name="q8" value="b"> b. &lt;navigation&gt;<br>
+            <input type="radio" name="q8" value="c"> c. &lt;menu&gt;<br>
+        </div>
+        <div class="question">
+            <label>9. Quelle propriété CSS est utilisée pour changer la taille de la police ?</label>
+            <input type="radio" name="q9" value="a"> a. `font-size`<br>
+            <input type="radio" name="q9" value="b"> b. `text-size`<br>
+            <input type="radio" name="q9" value="c"> c. `size`<br>
+        </div>
+        <div class="question">
+            <label>10. Quel mot-clé est utilisé pour déclarer une variable en JavaScript ?</label>
+            <input type="radio" name="q10" value="a"> a. `var`<br>
+            <input type="radio" name="q10" value="b"> b. `let`<br>
+            <input type="radio" name="q10" value="c"> c. `const`<br>
+        </div>
+        <button type="submit">Soumettre</button>
+    </form>
+
+    <div class="score" id="scoreDisplay"></div>
+
+    <!-- Inline JavaScript -->
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            let score = 0;
+            const totalQuestions = 10;
+            let anySelected = false; // Variable pour vérifier si au moins une réponse est sélectionnée
+    
+            // Vérification des réponses
+            const answers = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'a',
+                q4: 'a',
+                q5: 'b',
+                q6: 'b',
+                q7: 'a',
+                q8: 'a',
+                q9: 'a',
+                q10: 'a'
+            };
+    
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    anySelected = true; // Au moins une réponse a été sélectionnée
+                    if (selected.value === answers[`q${i}`]) {
+                        score++;
+                    }
+                }
+            }
+    
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            if (!anySelected) {
+                scoreDisplay.textContent = `Veuillez remplir au moins une question.`;
+                scoreDisplay.style.color = 'red'; // Couleur pour le message d'erreur
+            } else {
+                scoreDisplay.textContent = `Votre score est: ${score} sur ${totalQuestions}`;
+                if (score === totalQuestions) {
+                    scoreDisplay.style.color = 'green';
+                } else if (score >= totalQuestions / 2) {
+                    scoreDisplay.style.color = 'orange';
+                } else {
+                    scoreDisplay.style.color = 'red';
+                }
+            }      
+        });
+    </script>
+</body>
+</html>

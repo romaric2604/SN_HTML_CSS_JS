@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio - EVINA ZE DIEUBENI ROMARIC</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- Lien vers la feuille de style CSS -->
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Bouton revenir en haut -->
+<button id="backToTop" title="Revenir en haut">↑</button>
+
+<header>
+  <h1 class="floating">EVINA ZE DIEUBENI ROMARIC</h1>
+  <p>Étudiant à KEYCE Academy - Filière IABD, Niveau B1</p>
+</header>
+
+<div class="container">
+
+<!-- Section À propos -->
+<section id="about">
+  <img src="images/photo.jpg" alt="Photo de EVINA" />
+  <h3>À propos de moi</h3>
+  <p>Passionné par le développement web, je suis un étudiant motivé qui aime créer des sites modernes, interactifs et esthétiques. Toujours en apprentissage, je cherche à améliorer mes compétences en front-end et back-end pour devenir un développeur complet. J'ai déjà réalisé plusieurs projets personnels et je souhaite continuer à apprendre et à partager mes connaissances.</p>
+</section>
+
+<!-- Section Expériences -->
+<section id="experiences">
+  <h2>Expériences Professionnelles</h2>
+  <ul>
+    <li><strong>Stage Développeur Web</strong> - Tech Solutions (2024): Participation à la création d’un site e-commerce, intégration de nouvelles fonctionnalités avec JavaScript et React.</li>
+    <li><strong>Projet Freelance</strong> - Création d’un site vitrine pour une petite entreprise locale, avec HTML, CSS et WordPress.</li>
+    <li><strong>Participation à Hackathon</strong> - Projet d'une application mobile pour la gestion de tâches en équipe, en équipe de 4.</li>
+  </ul>
+</section>
+
+<!-- Section Formations -->
+<section id="formations">
+  <h2>Formations</h2>
+  <ul>
+    <li><strong>KEYCE Academy</strong> - Développement Web (2023 - Présent)</li>
+    <li><strong>OpenClassrooms</strong> - Développement Front-End (2022)</li>
+    <li><strong>MOOC</strong> - Introduction à JavaScript (2021)</li>
+  </ul>
+</section>
+
+<!-- Section Compétences -->
+<section id="skills-section">
+  <h2>Compétences Techniques</h2>
+  <div class="skills">
+    <button class="skill-button" onclick="showDescription('html')">HTML</button>
+    <button class="skill-button" onclick="showDescription('css')">CSS</button>
+    <button class="skill-button" onclick="showDescription('javascript')">JavaScript</button>
+    <button class="skill-button" onclick="showDescription('react')">React</button>
+    <button class="skill-button" onclick="showDescription('node')">Node.js</button>
+    <button class="skill-button" onclick="showDescription('git')">Git</button>
+    <button class="skill-button" onclick="showDescription('sql')">SQL</button>
+  </div>
+  <div class="description" id="description"></div>
+  <h3>Ce que j'ai appris :</h3>
+  <ul id="viewed-skills"></ul>
+</section>
+
+<!-- Section Projets -->
+<section id="projects">
+  <h2>Projets Réalisés</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Mon Blog</h3>
+      <p>Un blog personnel pour partager mes réflexions et tutoriels en développement web.</p>
+      <a href="https://github.com/christLK-coder/groupe-5/tree/main/Groupe-5" target="_blank">Voir sur GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Portfolio</h3>
+      <p>Ce site lui-même, présentant mes compétences et projets.</p>
+      <a href="https://github.com/christLK-coder/groupe-5/tree/main/Groupe-5" target="_blank">Voir sur GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Application To-Do</h3>
+      <p>Une app simple pour gérer ses tâches quotidiennes, avec filtrage et sauvegarde locale.</p>
+      <a href="https://github.com/luciano-237/Site_web" target="_blank">Voir sur GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Galerie de Projets</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/calco.png" alt="Projet 1" />
+      <p>Calculatrice moderne</p>
+      <a href="calculatrice/index.html" target="_blank">voir le projet</a>
+    </div>
+    <div class="gallery-item">
+      <img src="images/puzzel.png" alt="Projet 2" />
+      <p>Puzzel Simple</p>
+      <a href="puzzel.html" target="_blank">voir le projet</a>
+    </div>
+    <div class="gallery-item">
+      <img src="images/puzzel_image.png" alt="Projet 3" />
+      <p>Puzzel image</p>
+      <a href="puzzel_image.html" target="_blank">voir le projet</a>
+    </div>
+    <div class="gallery-item">
+      <img src="images/qcm.png" alt="Projet 4" />
+      <p>QCM sur le web</p>
+      <a href="qcm.html" target="_blank">voir le projet</a>
+    </div>
+    <div class="gallery-item">
+      <img src="images/cour.png" alt="Projet 5" />
+      <p>Cours sur le HTML</p>
+      <a href="cour.html" target="_blank">voir le projet</a>
+    </div>
+  </div>
+</section>
+
+<!-- Section Témoignages -->
+<section id="testimonials">
+  <h2>Témoignages</h2>
+  
+  <blockquote>
+    "EVINA est un développeur passionné et sérieux, il a livré le projet dans les délais et avec une qualité exceptionnelle." - Mentor
+  </blockquote>
+  <blockquote>
+    "Travailleur, créatif et toujours prêt à apprendre, EVINA est un atout pour toute équipe." - Collègue
+  </blockquote>
+  <blockquote>
+    "Son enthousiasme pour le développement web est contagieux. Il a rapidement compris nos besoins et a proposé des solutions innovantes." - Client
+  </blockquote>
+  <blockquote>
+    "EVINA possède une excellente maîtrise des technologies front-end et back-end. Je recommande vivement." - Professeur
+  </blockquote>
+  <blockquote>
+    "Très impliqué dans ses projets, il sait gérer le stress et respecter les échéances." - Chef de projet
+  </blockquote>
+  <blockquote>
+    "Sa curiosité et sa capacité d'adaptation font de lui un apprenant rapide et efficace." - Formateur
+  </blockquote>
+  <blockquote>
+    "Il a travaillé sur notre site e-commerce et a su optimiser la performance tout en conservant un design moderne." - Responsable IT
+  </blockquote>
+  <blockquote>
+    "EVINA est un excellent communicant, il explique clairement ses idées et collabore aisément avec l'équipe." - Designer
+  </blockquote>
+  <blockquote>
+    "Toujours motivé, il n'hésite pas à prendre des initiatives pour améliorer ses compétences et contribuer au projet." - Mentor
+  </blockquote>
+  <blockquote>
+    "Sa rigueur et sa passion pour le code font de lui un futur développeur de grand talent." - Collègue
+  </blockquote>
+</section>
+
+<!-- Section Contact -->
+<section id="contact">
+  <h2>Contactez-moi</h2>
+  <p><strong>Téléphone:</strong> +237 691809314</p>
+  <p><strong>Email:</strong> <a href="mailto:monemail@example.com">evinazedieubeniromaric@gmail.com</a></p>
+  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank">Mon Profil LinkedIn</a></p>
+  <p><strong>Skype:</strong> mon.skype</p>
+</section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <h3>EVINA ZE DIEUBENI ROMARIC</h3>
+    <p>Développeur Web & Passionné par l'Innovation</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank" aria-label="LinkedIn">
+        <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.98 3.5C4.98 2.12 6.12 1 7.5 1S10 2.12 10 3.5 8.86 6 7.5 6 4.98 4.88 4.98 3.5zM4 8h7v14H4V8zm9 0h3.75v2.15h.05c.52-1 1.78-2.15 3.68-2.15 3.94 0 4.66 2.58 4.66 5.94V22h-7v-9.78c0-2.35-.04-5.37-3.28-5.37-3.28 0-3.78 2.56-3.78 5.2V22h-7V8z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/romaric2604/SN_HTML_JS_CSS" target="_blank" aria-label="GitHub">
+        <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.84 1.32 3.54 1.01.11-.78.42-1.32.76-1.62-2.67-.31-5.48-1.34-5.48-5.97 0-1.32.47-2.4 1.24-3.24-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 015.99 0c2.28-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.84 1.24 1.92 1.24 3.24 0 4.63-2.81 5.65-5.49 5.96.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.58A12 12 0 0012 0z"/>
+        </svg>
+      </a>
+    </div>
+    <p>&copy; 2025 EVINA ZE DIEUBENI ROMARIC. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- Script JS -->
+<script src="script.js"></script>
+</body>
+</html>

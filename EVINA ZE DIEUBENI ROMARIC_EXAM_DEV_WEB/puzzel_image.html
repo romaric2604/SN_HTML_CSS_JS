@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Graphique</title>
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #puzzle {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .tile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #4CAF50;
+        }
+
+        .empty {
+            background-color: transparent;
+            cursor: default;
+        }
+
+       
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        border: none;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        transition: 0.5s ease; 
+        color:  #20b625;
+    }
+    
+    button:hover {
+        transform: scale(1.05);
+        background-color:  #2eb532;
+        color: #f0f0f0;
+    }
+
+        #moveCounter {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        #imageInput {
+            margin-bottom: 20px;
+        }
+
+        #imagePreview {
+            margin-top: 20px;
+            max-width: 300px;
+            max-height: 300px;
+            display: none; /* Caché par défaut */
+        }
+        a{
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        a:hover{
+            color: #027006;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Puzzle Graphique</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <img id="imagePreview" alt="Aperçu de l'image choisie">
+    <button id="startButton">Commencer le Puzzle</button>
+
+    <div id="puzzle"></div>
+    <button id="shuffleButton">Mélanger</button>
+    <button id="resetButton">Réinitialiser</button>
+    <div id="moveCounter">Mouvements: 0</div>
+    <a href="puzzel.html">Essayer un puzzel avec des chiffre</a>
+
+    <!-- Inline JavaScript -->
+    <script>
+        const puzzleElement = document.getElementById('puzzle');
+        const shuffleButton = document.getElementById('shuffleButton');
+        const resetButton = document.getElementById('resetButton');
+        const moveCounterElement = document.getElementById('moveCounter');
+        const imageInput = document.getElementById('imageInput');
+        const startButton = document.getElementById('startButton');
+        const imagePreview = document.getElementById('imagePreview');
+
+        let tiles = [];
+        let emptyIndex = 8; // Position de la case vide
+        let moveCount = 0;
+        let imageSrc = '';
+
+        // Affiche l'aperçu de l'image choisie
+        imageInput.onchange = function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imageSrc = e.target.result; // Récupère l'image chargée
+                    imagePreview.src = imageSrc; // Met à jour l'aperçu
+                    imagePreview.style.display = 'block'; // Affiche l'aperçu
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        };
+
+        startButton.onclick = function() {
+            if (imageSrc) {
+                initPuzzle(); // Initialise le puzzle avec l'image
+            } else {
+                alert('Veuillez sélectionner une image pour commencer le puzzle.');
+            }
+        };
+
+        function initPuzzle() {
+            tiles = [...Array(8).keys()].map(i => i + 1).concat(null); // Crée un tableau [1, 2, 3, 4, 5, 6, 7, 8, null]
+            renderPuzzle();
+        }
+
+        function renderPuzzle() {
+            puzzleElement.innerHTML = '';
+            tiles.forEach((tile, index) => {
+                const tileElement = document.createElement('div');
+                tileElement.className = 'tile' + (tile === null ? ' empty' : '');
+                if (tile !== null) {
+                    const row = Math.floor((tile - 1) / 3);
+                    const col = (tile - 1) % 3;
+                    tileElement.style.backgroundImage = `url(${imageSrc})`;
+                    tileElement.style.backgroundSize = '300px 300px'; // Ajuste la taille de l'image
+                    tileElement.style.backgroundPosition = `-${col * 100}px -${row * 100}px`; // Positionne la partie de l'image
+                }
+                tileElement.onclick = () => handleTileClick(index);
+                puzzleElement.appendChild(tileElement);
+            });
+            moveCounterElement.textContent = `Mouvements: ${moveCount}`;
+        }
+
+        function handleTileClick(index) {
+            if (isAdjacent(index, emptyIndex)) {
+                tiles[emptyIndex] = tiles[index];
+                tiles[index] = null;
+                emptyIndex = index;
+                moveCount++;
+                renderPuzzle();
+                checkWin();
+            }
+        }
+
+        function isAdjacent(index1, index2) {
+            const row1 = Math.floor(index1 / 3);
+            const col1 = index1 % 3;
+            const row2 = Math.floor(index2 / 3);
+            const col2 = index2 % 3;
+            return (Math.abs(row1 - row2) + Math.abs(col1 - col2) === 1);
+        }
+
+        function shuffle() {
+            let shuffled;
+            do {
+                shuffled = tiles.slice();
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+            } while (!isSolvable(shuffled));
+            tiles = shuffled;
+            emptyIndex = tiles.indexOf(null);
+            moveCount = 0;
+            renderPuzzle();
+        }
+
+        function isSolvable(shuffled) {
+            const inversions = shuffled.reduce((count, tile, index) => {
+                if (tile === null) return count;
+                return count + shuffled.slice(index + 1).filter(t => t < tile).length;
+            }, 0);
+            return inversions % 2 === 0;
+        }
+
+        function checkWin() {
+            if (tiles.slice(0, 8).every((tile, index) => tile === index + 1)) {
+                alert('Bravo ! Vous avez résolu le puzzle !');
+            }
+        }
+
+        shuffleButton.onclick = shuffle;
+        resetButton.onclick = initPuzzle;
+
+    </script>
+
+</body>
+</html>
